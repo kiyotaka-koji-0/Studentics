@@ -17,3 +17,6 @@ object Profile
 
 @Serializable
 object Search
+
+@Serializable
+object AddExamScreen

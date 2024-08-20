@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="metalBG">#303135</color>
+    <color name="google_green">#27feb0</color>
 </resources>
