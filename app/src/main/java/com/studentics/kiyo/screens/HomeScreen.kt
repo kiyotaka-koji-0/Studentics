@@ -69,7 +69,6 @@ import com.studentics.kiyo.classes.AddExamScreen
 import com.studentics.kiyo.components.BottomNavBar
 import com.studentics.kiyo.components.SubjectMarksPieChart
 import com.studentics.kiyo.components.TopBar
-import com.studentics.kiyo.components.TypewriterText
 import com.studentics.kiyo.ui.theme.accentColor
 import com.studentics.kiyo.ui.theme.backgroundColor
 import com.studentics.kiyo.ui.theme.componentColor
@@ -429,18 +428,16 @@ fun AIReviewBlob(modifier: Modifier = Modifier, exam: Exam) {
     {
         Box(contentAlignment = Alignment.Center) {
             val review = exam.aiReview.replace("*", "").replace("", "")
-            if (expanded) {
-                TypewriterText(text = review)
-            } else {
-                Text(
-                    text = review,
-                    fontFamily = getFont(name = "Poppins"),
-                    color = Color.White,
-                    maxLines = 5,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center
-                )
-            }
+            Text(
+                text = review,
+                fontFamily = getFont("Poppins"),
+                color = Color.White,
+                textAlign = TextAlign.Center,
+                fontSize = 15.sp,
+                maxLines = if(expanded) Int.MAX_VALUE else 5,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.animateContentSize(animationSpec = tween(easing = EaseInOut))
+            )
         }
     }
 }
